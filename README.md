@@ -1,3 +1,6 @@
+gpdPerm - genral pareto dist. for permutation testing 
+=====================================================
+
 Python module to improve pvalue estimation from a null distribution that is 
 approximated by permutation testing. Uses a genralized pereto distribution 
 to approximate the tail of the null distribution, as described in 
@@ -16,7 +19,9 @@ The current version is limited to the maximum lilklyhood method for preforming t
 Original code by: Theo Knijnenburg, Institute for Systems Biology, Jan 6 2009
 Tranfered from matlab to python by: Ryan Tasseff, Institute for Systems Biology, Dec 2011
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+license
+---------------------
+
 
 Original Warranty Disclaimer and Copyright Notice attached to the matlab scripts:
  
