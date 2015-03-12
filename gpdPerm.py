@@ -62,14 +62,14 @@ def est(x0,y,Nexcmax=250,alpha=0.05,method='ML'):
 	
 	x0 	test statistic
 	y	permutation values 
-	Nexcmax	number of initial exceedances (defult: 250)
-	alpha	not yet implimented 
-	method	maximum liklyhood ('ML') only at this time
+	Nexcmax	number of initial exceedances (default: 250)
+	alpha	max p-value for gpd to fit y distribution 
+	method	maximum likelihood ('ML') only at this time
 	Returns:
 	p 	estimate of p values
 	"""
 	if method!= 'ML':
-		raise ValueError("only method=ML is currently implimented")
+		raise ValueError("only method=ML is currently implemented")
 	
 	y=np.sort(y)[::-1]
 	N=len(y)
@@ -84,22 +84,23 @@ def est(x0,y,Nexcmax=250,alpha=0.05,method='ML'):
 		p = np.nan
 		while np.isnan(p) and count<LNV:
 			Nexc = Nexcvec[count]
-			p = pgpdML(y,x0,float(N),Nexc)
+			p = pgpdML(y,x0,float(N),Nexc,Padth=alpha)
 			count = count+1
 
 	return p
 
-def pgpdML(y,x0,N,Nexc):
+def pgpdML(y,x0,N,Nexc,Padth=0.05):
 	"""Computing permutation test P-value of the 
 	GPD approximation.
 	x0         original statistic
 	y          permutation values
 	N          number of permutation values
 	Nexc       number of permutations used to approximate the tail
+	Padth      Max p-value for GDP goodness of fit statistic
 	Returns
 	Phat       estimated P-value
 	"""
-	Padth = 0.05
+	
 	# define tail 
 	z = y[:Nexc]
 	t = np.mean(y[Nexc-1:Nexc+1])
