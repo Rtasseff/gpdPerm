@@ -7,8 +7,8 @@ to approximate the tail of the null distribution, as described in
 Knijnenburg 2009.  Authors publicly provided the original analysis as a set of 
 matlab scripts.  
 
-To run the full procedure given a test statistic and a 
-vector of permutations call the method "est".
+To run the full procedure given a test statistic, x0, and a 
+vector of permutations, y, call gdpPerm::est(x0,y)
 
 Knijnenburg 2009 -  Knijnenburg et al., Bioinformatics, Vol. 25 ISMB 2009, pages i161-i168
 
