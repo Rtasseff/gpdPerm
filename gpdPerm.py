@@ -141,7 +141,7 @@ def gpdfit(z):
 
 	# check boundry
 	if np.abs(parmhat[1]-1)<TolBnd:
-		paramhat = np.array([np.nan,np.nan])
+		parmhat = np.array([np.nan,np.nan])
 
 	return parmhat
 
